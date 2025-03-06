@@ -8,7 +8,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name="TIPOCAMBIO")
+@Table(name = "TIPOCAMBIO")
 public class TipoCambio {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,7 +20,6 @@ public class TipoCambio {
 	@Column(name = "MONEDA_DESTINO")
 	private String monedaDestino;
 
-	
 	public TipoCambio() {
 	}
 
@@ -31,8 +30,6 @@ public class TipoCambio {
 	public void setId(int id) {
 		this.id = id;
 	}
-
-	
 
 	public double getTipoCambio() {
 		return tipoCambio;
@@ -62,5 +59,4 @@ public class TipoCambio {
 		this.tipoCambio = tipoCambio;
 	}
 
-	
 }

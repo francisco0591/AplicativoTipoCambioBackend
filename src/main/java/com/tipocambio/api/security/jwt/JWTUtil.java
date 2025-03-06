@@ -4,21 +4,17 @@ import java.security.Key;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
-
-
-import io.jsonwebtoken.Claims;
-import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.security.Keys;
-import jakarta.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import com.tipocambio.api.entities.Usuario;
 
-
+import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.security.Keys;
+import jakarta.annotation.PostConstruct;
 
 /**
  *
@@ -59,7 +55,7 @@ public class JWTUtil {
 
 	public String generateToken(Usuario user) {
 		Map<String, Object> claims = new HashMap<>();
-		claims.put("role", Arrays.asList(user.getRoles()) );
+		claims.put("role", Arrays.asList(user.getRoles()));
 		return doGenerateToken(claims, user.getUsername());
 	}
 
@@ -71,7 +67,7 @@ public class JWTUtil {
 			final Date expirationDate = new Date(createdDate.getTime() + expirationTimeLong * 1000);
 			return Jwts.builder().setClaims(claims).setSubject(username).setIssuedAt(createdDate)
 					.setExpiration(expirationDate).signWith(key).compact();
-		}catch(Exception ex) {
+		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
 		return null;

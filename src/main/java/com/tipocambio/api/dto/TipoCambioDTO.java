@@ -2,7 +2,6 @@ package com.tipocambio.api.dto;
 
 import java.io.Serializable;
 
-
 public class TipoCambioDTO implements Serializable {
 	/**
 	 * 
@@ -15,9 +14,9 @@ public class TipoCambioDTO implements Serializable {
 	private double tipoDeCambio;
 
 	public TipoCambioDTO() {
-		
+
 	}
-	
+
 	public TipoCambioDTO(double monto, double tipoDeCambio, String monedaOrigen, String monedaDestino,
 			double montoConvertido) {
 		this.monto = monto;
